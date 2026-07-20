@@ -44,7 +44,7 @@ export function MorphText({
   interval = 3000,
   subtext,
   fontSize = "clamp(3rem, 15vw, 10rem)",
-  fontFamily = '"Space Grotesk", sans-serif',
+  fontFamily = 'var(--font-space-grotesk), "Space Grotesk", sans-serif',
   className,
   textClassName,
   subtextClassName,
@@ -141,7 +141,6 @@ export function MorphText({
 
       {/* ── Scoped keyframes ──────────────────────────────────────── */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
 
         @keyframes morph-word-rotate {
           0% {
