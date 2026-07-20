@@ -77,45 +77,4 @@ interface CardData {
   accent: Accent;
 }
 
-export function HoverRevealCardDemo() {
-  const cards: CardData[] = [
-    {
-      icon: Sparkles,
-      title: "Smart Suggestions",
-      description:
-        "Context-aware recommendations that adapt to how you work, learning from every interaction.",
-      accent: "indigo",
-    },
-    {
-      icon: Zap,
-      title: "Instant Sync",
-      description:
-        "Changes propagate across every device in real time, no manual refresh or save button needed.",
-      accent: "amber",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Private by Default",
-      description:
-        "End-to-end encryption keeps your data yours. Nothing is shared without your explicit consent.",
-      accent: "emerald",
-    },
-    {
-      icon: Rocket,
-      title: "Built to Scale",
-      description:
-        "From a solo project to a full team, the same architecture grows with you without a rewrite.",
-      accent: "rose",
-    },
-  ];
-
-  return (
-    <div className="min-h-screen w-full bg-slate-50 flex items-center justify-center p-10">
-      <div className="flex flex-wrap justify-center gap-6">
-        {cards.map((c) => (
-          <HoverRevealCard key={c.title} {...c} />
-        ))}
-      </div>
-    </div>
-  );
-}
+export function HoverRevealCardDemo() {}
