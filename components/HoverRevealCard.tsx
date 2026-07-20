@@ -31,11 +31,14 @@ const HoverRevealCard: FC<HoverRevealCardProps> = ({
   accent = "monochrome",
 }) => {
   const { gradient, border, iconColor } = accentMap[accent];
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div
       tabIndex={0}
-      className={`group relative flex flex-col items-center text-center w-full max-w-sm md:w-96 rounded-2xl border ${border} bg-white dark:bg-[#0a0a0a] p-8 shadow-sm outline-none
+      onClick={() => setIsOpen(!isOpen)}
+      onBlur={() => setIsOpen(false)}
+      className={`group relative flex flex-col items-center text-center w-full max-w-sm md:w-96 rounded-2xl border ${border} bg-white dark:bg-[#0a0a0a] p-8 shadow-sm outline-none cursor-pointer
                   transition-all duration-300 ease-out
                   hover:shadow-lg hover:-translate-y-1
                   focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-400`}
@@ -43,7 +46,7 @@ const HoverRevealCard: FC<HoverRevealCardProps> = ({
       {/* Icon */}
       <div
         className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${gradient}
-                    transition-transform duration-300 group-hover:scale-110 group-focus-visible:scale-110`}
+                    transition-transform duration-300 group-hover:scale-110 group-focus-visible:scale-110 ${isOpen ? 'scale-110' : ''}`}
       >
         <Icon className={`h-8 w-8 ${iconColor}`} strokeWidth={2} />
       </div>
@@ -53,10 +56,10 @@ const HoverRevealCard: FC<HoverRevealCardProps> = ({
 
       {/* Description — collapsed by default, expands on hover/focus */}
       <div
-        className="grid transition-all duration-300 ease-out
-                   grid-rows-[0fr] opacity-0
+        className={`grid transition-all duration-300 ease-out
                    group-hover:grid-rows-[1fr] group-hover:opacity-100
-                   group-focus-visible:grid-rows-[1fr] group-focus-visible:opacity-100"
+                   group-focus-visible:grid-rows-[1fr] group-focus-visible:opacity-100
+                   ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
       >
         <p className="overflow-hidden text-base leading-relaxed text-neutral-500 dark:text-neutral-400">
           <span className="block pt-3">{description}</span>

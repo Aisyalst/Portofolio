@@ -125,13 +125,13 @@ export function SpotlightNavbar({
                 ref={navRef}
                 className={cn(
                     "spotlight-nav spotlight-nav-bg glass-border spotlight-nav-shadow",
-                    "relative h-11 rounded-full transition-all duration-300 overflow-hidden"
+                    "relative h-11 rounded-full transition-all duration-300 overflow-x-auto overflow-y-hidden scrollbar-hide max-w-[95vw] sm:max-w-full"
                 )}
             >
                 {/* Content */}
                 <ul className="relative flex items-center h-full px-2 gap-0 z-[10]">
                     {items.map((item, idx) => (
-                        <li key={idx} className="relative h-full flex items-center justify-center">
+                        <li key={idx} className="relative h-full flex items-center justify-center shrink-0">
                             <a
                                 href={item.href}
                                 data-index={idx}
@@ -144,7 +144,7 @@ export function SpotlightNavbar({
                                     }
                                 }}
                                 className={cn(
-                                    "px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-full",
+                                    "px-3 md:px-4 py-2 text-xs md:text-sm font-medium transition-colors duration-200 rounded-full",
                                     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 dark:focus-visible:ring-white/30",
                                     // Active vs Inactive Text
                                     activeIndex === idx

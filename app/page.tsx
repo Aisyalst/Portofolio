@@ -43,12 +43,13 @@ export default function Home() {
             hexagonMargin={4}
             className="flex h-full items-center justify-center pt-24"
           >
-            <div className="z-10 flex flex-col items-center justify-center px-4 text-center">
-              <div data-scroll data-scroll-speed="0.2">
+            <div className="z-10 flex flex-col items-center justify-center px-4 text-center w-full max-w-[100vw] overflow-hidden">
+              <div data-scroll data-scroll-speed="0.2" className="w-full">
                 <MorphText
-                  words={["WEB DEVELOPER", "UI/UX DESAINER"]}
+                  words={["WEB DEVELOPER", "UI/UX DESIGNER"]}
                   subtext="Welcome to the future of UI design"
-                  className="mb-8 mt-12"
+                  className="mb-8 mt-12 w-full"
+                  fontSize="clamp(1.5rem, 8vw, 6rem)"
                 />
               </div>
             </div>
@@ -116,10 +117,10 @@ export default function Home() {
                 ].map((skill, idx) => (
                   <div 
                     key={idx} 
-                    className={`h-10 w-10 rounded-full flex items-center justify-center font-bold border-2 border-white dark:border-neutral-900 shadow-md relative ${skill.color}`}
+                    className={`h-8 md:h-10 w-8 md:w-10 rounded-full flex items-center justify-center font-bold border-2 border-white dark:border-neutral-900 shadow-md relative ${skill.color}`}
                     style={{ backgroundColor: skill.bg }}
                   >
-                    <skill.Icon className="text-xl" />
+                    <skill.Icon className="text-lg md:text-xl" />
                     <AvatarGroupTooltip>{skill.name}</AvatarGroupTooltip>
                   </div>
                 ))}
@@ -133,7 +134,7 @@ export default function Home() {
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="min-h-screen relative flex flex-col md:flex-row items-start gap-12 scroll-mt-24">
+        <section id="projects" className="min-h-screen relative flex flex-col-reverse md:flex-row items-start gap-12 scroll-mt-24">
           {/* Left Side: Scrolling */}
           <div className="w-full md:w-1/2 flex flex-col gap-32 py-12 items-center">
             <FlipCard data={{
@@ -166,7 +167,7 @@ export default function Home() {
           </div>
           
           {/* Right Side: Sticky */}
-          <div className="w-full md:w-1/2 sticky top-32 h-[70vh] rounded-[2rem] flex flex-col items-center justify-center p-8 overflow-hidden">
+          <div className="w-full md:w-1/2 md:sticky top-32 h-[70vh] rounded-[2rem] flex flex-col items-center justify-center p-8 overflow-hidden">
              
              <h2 className="text-5xl md:text-6xl font-bold mb-6 dark:text-white tracking-tight text-center z-10">Tech<br/>Stack</h2>
              <p className="text-neutral-500 text-center max-w-sm z-10">Scroll through the left column to explore my recent work and open source contributions.</p>
