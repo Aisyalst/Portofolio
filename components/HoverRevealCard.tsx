@@ -7,6 +7,8 @@ interface HoverRevealCardProps {
   icon: LucideIcon | ElementType;
   title: string;
   description: string;
+  subtitle?: string;
+  link?: string;
   accent?: Accent;
 }
 
@@ -28,6 +30,8 @@ const HoverRevealCard: FC<HoverRevealCardProps> = ({
   icon: Icon,
   title,
   description,
+  subtitle,
+  link,
   accent = "monochrome",
 }) => {
   const { gradient, border, iconColor } = accentMap[accent];
@@ -53,6 +57,8 @@ const HoverRevealCard: FC<HoverRevealCardProps> = ({
 
       {/* Title */}
       <h3 className="mt-6 text-xl font-bold text-neutral-900 dark:text-white">{title}</h3>
+      {/* Subtitle */}
+      {subtitle && <p className="mt-1 text-sm text-neutral-500 font-medium">{subtitle}</p>}
 
       {/* Description — collapsed by default, expands on hover/focus */}
       <div
@@ -61,9 +67,24 @@ const HoverRevealCard: FC<HoverRevealCardProps> = ({
                    group-focus-visible:grid-rows-[1fr] group-focus-visible:opacity-100
                    ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
       >
-        <p className="overflow-hidden text-base leading-relaxed text-neutral-500 dark:text-neutral-400">
-          <span className="block pt-3">{description}</span>
-        </p>
+        <div className="overflow-hidden">
+          <p className="text-base leading-relaxed text-neutral-500 dark:text-neutral-400">
+            <span className="block pt-3">{description}</span>
+          </p>
+          {link && (
+            <div className="pt-4 pb-2">
+              <a 
+                href={link} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center justify-center px-5 py-2 text-sm font-semibold text-white bg-black dark:bg-white dark:text-black rounded-full hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors"
+                onClick={(e) => e.stopPropagation()}
+              >
+                View Details
+              </a>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

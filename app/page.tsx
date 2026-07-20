@@ -183,23 +183,23 @@ export default function Home() {
             events={[
               {
                 id: "exp1",
-                year: "2022 - Present",
-                title: "Senior Web Developer",
-                subtitle: "Company Name",
-                description: "Leading the front-end development team, architecting modern web applications, and driving UI/UX initiatives to create seamless user experiences.",
+                year: "January 2024 - June 2024",
+                title: "Internship Accuntant",
+                subtitle: "Dinas Pendidikan Riau",
+                description: "Perform financial data processing and data entry, and assist with administrative tasks.",
               },
               {
                 id: "exp2",
-                year: "2020 - 2022",
-                title: "UI/UX Designer",
-                subtitle: "Creative Agency",
-                description: "Designed responsive websites and mobile applications with a strong focus on user-centered design principles and accessibility.",
+                year: "Mei 2025 - April 2026",
+                title: "Web Developer",
+                subtitle: "Neofitness",
+                description: "Developing and managing websites and databases to enhance performance and user experience.",
               },
               {
                 id: "exp3",
-                year: "2018 - 2020",
-                title: "Junior Front-End Developer",
-                subtitle: "Startup Inc.",
+                year: "Mei 2025 - Present",
+                title: "Web Developer",
+                subtitle: "PT. Yogura Tekindo",
                 description: "Developed and maintained interactive user interfaces for various client projects using React and Tailwind CSS.",
               }
             ]}
@@ -217,13 +217,17 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-8 max-w-5xl w-full">
             <HoverRevealCard 
               icon={Trophy}
-              title="Best UI Design Award"
-              description="Recognized for creating the most intuitive and visually appealing dashboard interface in 2023."
+              title="1st Place UI/UX Competition"
+              subtitle="2023"
+              description="1st Place UI/UX Competition as a team, organized by Politeknik Caltex Riau"
+              link="https://www.figma.com/design/ucvT0kRbu8Jh4muITWXsxp/Wisataku?node-id=662-149&p=f&t=Fg83T0w5Pm68yleb-0"
             />
             <HoverRevealCard 
               icon={Star}
-              title="Open Source Contributor"
-              description="Active contributor to popular React libraries with over 10k stars on GitHub."
+              title="Finalis UI/UX Competition"
+              subtitle="2024"
+              description="Finalis UI/UX Competition as a team, organized by Politeknik Caltex Riau"
+              link="https://www.figma.com/design/4MDif4Zh8pkWRg6iW8KDR7/SkillSync?node-id=0-1&p=f&t=nBklreEo2wFej8If-0"
             />
           </div>
         </section>
