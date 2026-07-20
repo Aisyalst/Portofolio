@@ -13,7 +13,7 @@ import { ScrollTimeline } from "@/components/lightswind/scroll-timeline";
 import HoverRevealCard from "@/components/HoverRevealCard";
 import { Trophy, Star } from "lucide-react";
 import { FlipButton, FlipButtonFront, FlipButtonBack } from "@/components/animate-ui/components/buttons/flip";
-import { SiFigma, SiHtml5, SiCss, SiJavascript, SiTailwindcss, SiMysql, SiPhp, SiLaravel, SiReact, SiNextdotjs } from "react-icons/si";
+import { SiFigma, SiHtml5, SiCss, SiJavascript, SiTailwindcss, SiMysql, SiPhp, SiLaravel, SiReact, SiNextdotjs, SiTypescript } from "react-icons/si";
 
 export default function Home() {
   useEffect(() => {
@@ -108,6 +108,7 @@ export default function Home() {
                   { name: "HTML", Icon: SiHtml5, bg: "#E34F26", color: "text-white" },
                   { name: "CSS", Icon: SiCss, bg: "#1572B6", color: "text-white" },
                   { name: "JavaScript", Icon: SiJavascript, bg: "#F7DF1E", color: "text-black" },
+                  { name: "Typescript", Icon: SiTypescript, bg: "#3178C6", color: "text-white" },
                   { name: "Tailwind", Icon: SiTailwindcss, bg: "#06B6D4", color: "text-white" },
                   { name: "MySQL", Icon: SiMysql, bg: "#4479A1", color: "text-white" },
                   { name: "PHP", Icon: SiPhp, bg: "#777BB4", color: "text-white" },

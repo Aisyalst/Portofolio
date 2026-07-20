@@ -46,11 +46,17 @@ interface HardSkillsListProps {
 }
 
 function NotificationList({ skills = [] }: HardSkillsListProps) {
+  const [isOpen, setIsOpen] = React.useState(false);
+
   return (
     <motion.div
-      className="bg-neutral-900 p-3 rounded-3xl w-64 space-y-3 shadow-md"
+      className="bg-neutral-900 p-3 rounded-3xl w-64 space-y-3 shadow-md cursor-pointer outline-none"
       initial="collapsed"
+      animate={isOpen ? "expanded" : "collapsed"}
       whileHover="expanded"
+      onClick={() => setIsOpen(!isOpen)}
+      onBlur={() => setIsOpen(false)}
+      tabIndex={0}
     >
       <div>
         {skills.map((skill, i) => (
