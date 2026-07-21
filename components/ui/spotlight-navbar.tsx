@@ -91,6 +91,36 @@ export function SpotlightNavbar({
         };
     }, [activeIndex]);
 
+    // Scrollspy logic to update activeIndex on scroll
+    useEffect(() => {
+        const handleScroll = () => {
+            const windowHeight = window.innerHeight;
+            let currentActiveIndex = -1;
+
+            items.forEach((item, index) => {
+                const element = document.querySelector(item.href) as HTMLElement;
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    // Consider section active if its top is above 40% of the viewport and its bottom is below 40%
+                    if (rect.top <= windowHeight * 0.4 && rect.bottom >= windowHeight * 0.4) {
+                        currentActiveIndex = index;
+                    }
+                }
+            });
+
+            if (currentActiveIndex !== -1) {
+                setActiveIndex((prev) => (prev !== currentActiveIndex ? currentActiveIndex : prev));
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        handleScroll(); // Check immediately on mount
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [items]);
+
     // Handle the "Ambience" (Active Item) Movement
     useEffect(() => {
         if (!navRef.current) return;
