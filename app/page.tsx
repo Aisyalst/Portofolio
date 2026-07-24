@@ -3,6 +3,8 @@
 import { useEffect, useRef } from "react";
 import { HexagonBackground } from "@/components/animate-ui/components/backgrounds/hexagon";
 import { SpotlightNavbar } from "@/components/ui/spotlight-navbar";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { Reveal } from "@/components/ui/reveal";
 import { MorphText } from "@/components/ui/morph-text";
 import TiltedCard from "@/components/TiltedCard";
 import { AvatarGroup, AvatarGroupTooltip } from "@/components/animate-ui/components/animate/avatar-group";
@@ -31,6 +33,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-neutral-100 dark:bg-neutral-900 font-sans">
+      <ScrollProgress />
       <div className="fixed top-0 left-0 right-0 z-50">
         <SpotlightNavbar />
       </div>
@@ -63,7 +66,7 @@ export default function Home() {
         {/* About & Skills Section */}
         <section id="about" className="min-h-[70vh] flex flex-col md:flex-row items-center gap-16 scroll-mt-40">
           {/* Left: About Me */}
-          <div className="w-full md:w-1/2 flex flex-col items-center md:items-start">
+          <Reveal direction="right" className="w-full md:w-1/2 flex flex-col items-center md:items-start">
             <div className="mb-10">
               <TiltedCard
                 imageSrc="/foto-profil.jpg"
@@ -95,10 +98,10 @@ export default function Home() {
                 between aesthetics and performance.
               </p>
             </div>
-          </div>
+          </Reveal>
 
           {/* Right: Skills with AvatarGroup */}
-          <div className="w-full md:w-1/2 flex flex-col items-center justify-center h-full gap-10" data-scroll data-scroll-speed="0.2">
+          <Reveal direction="left" delay={120} className="w-full md:w-1/2 flex flex-col items-center justify-center h-full gap-10">
             <h2 className="text-2xl md:text-2xl font-bold dark:text-white tracking-tight text-center m-0">My Technical Skills</h2>
             
             <div className="flex items-center justify-center scale-[1.5] origin-center">
@@ -131,40 +134,46 @@ export default function Home() {
             <div className="flex justify-center w-full">
               <HardSkillsList skills={hardSkills} />
             </div>
-          </div>
+          </Reveal>
         </section>
 
         {/* Projects Section */}
         <section id="projects" className="min-h-screen relative flex flex-col-reverse md:flex-row items-start gap-12 scroll-mt-24">
           {/* Left Side: Scrolling */}
           <div className="w-full md:w-1/2 flex flex-col gap-32 py-12 items-center">
-            <FlipCard data={{
-              title: "Project Alpha",
-              image: "https://images.unsplash.com/photo-1557821552-17105153ce67?auto=format&fit=crop&w=800&q=80",
-              link: "alpha.example.com",
-              description: "A comprehensive e-commerce platform built with Next.js and Stripe. Features include user authentication, a shopping cart, and seamless checkout.",
-              createdDuration: "2023",
-              websiteUrl: "https://example.com",
-              githubUrl: "https://github.com/example"
-            }} />
-            
-            <FlipCard data={{
-              title: "Project Beta",
-              image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-              link: "beta.example.com",
-              description: "A mobile-first dashboard for managing cryptocurrency portfolios. Real-time data visualization using WebSockets and Chart.js.",
-              createdDuration: "6 months ago",
-              websiteUrl: "https://example.com"
-            }} />
-            
-            <FlipCard data={{
-              title: "Project Gamma",
-              image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-              link: "gamma.example.com",
-              description: "An AI-powered writing assistant using OpenAI's GPT-4. Helps users generate marketing copy, blog posts, and emails instantly.",
-              createdDuration: "Just recently",
-              githubUrl: "https://github.com/example"
-            }} />
+            <Reveal className="w-fit">
+              <FlipCard data={{
+                title: "Project Alpha",
+                image: "https://images.unsplash.com/photo-1557821552-17105153ce67?auto=format&fit=crop&w=800&q=80",
+                link: "alpha.example.com",
+                description: "A comprehensive e-commerce platform built with Next.js and Stripe. Features include user authentication, a shopping cart, and seamless checkout.",
+                createdDuration: "2023",
+                websiteUrl: "https://example.com",
+                githubUrl: "https://github.com/example"
+              }} />
+            </Reveal>
+
+            <Reveal className="w-fit" delay={80}>
+              <FlipCard data={{
+                title: "Project Beta",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+                link: "beta.example.com",
+                description: "A mobile-first dashboard for managing cryptocurrency portfolios. Real-time data visualization using WebSockets and Chart.js.",
+                createdDuration: "6 months ago",
+                websiteUrl: "https://example.com"
+              }} />
+            </Reveal>
+
+            <Reveal className="w-fit" delay={160}>
+              <FlipCard data={{
+                title: "Project Gamma",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+                link: "gamma.example.com",
+                description: "An AI-powered writing assistant using OpenAI's GPT-4. Helps users generate marketing copy, blog posts, and emails instantly.",
+                createdDuration: "Just recently",
+                githubUrl: "https://github.com/example"
+              }} />
+            </Reveal>
           </div>
           
           {/* Right Side: Sticky */}
@@ -213,31 +222,41 @@ export default function Home() {
 
         {/* Achievements Section */}
         <section id="achievements" className="min-h-[50vh] flex flex-col justify-center items-center scroll-mt-24" data-scroll data-scroll-speed="0.1">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 dark:text-white tracking-tight">Achievements</h2>
+          <Reveal>
+            <h2 className="text-4xl md:text-5xl font-bold mb-12 dark:text-white tracking-tight">Achievements</h2>
+          </Reveal>
           <div className="flex flex-wrap justify-center gap-8 max-w-5xl w-full">
-            <HoverRevealCard 
-              icon={Trophy}
-              title="1st Place UI/UX Competition"
-              subtitle="2023"
-              description="1st Place UI/UX Competition as a team, organized by Politeknik Caltex Riau"
-              link="https://www.figma.com/design/ucvT0kRbu8Jh4muITWXsxp/Wisataku?node-id=662-149&p=f&t=Fg83T0w5Pm68yleb-0"
-            />
-            <HoverRevealCard 
-              icon={Star}
-              title="Finalis UI/UX Competition"
-              subtitle="2024"
-              description="Finalis UI/UX Competition as a team, organized by Politeknik Caltex Riau"
-              link="https://www.figma.com/design/4MDif4Zh8pkWRg6iW8KDR7/SkillSync?node-id=0-1&p=f&t=nBklreEo2wFej8If-0"
-            />
+            <Reveal className="w-fit">
+              <HoverRevealCard 
+                icon={Trophy}
+                title="1st Place UI/UX Competition"
+                subtitle="2023"
+                description="1st Place UI/UX Competition as a team, organized by Politeknik Caltex Riau"
+                link="https://www.figma.com/design/ucvT0kRbu8Jh4muITWXsxp/Wisataku?node-id=662-149&p=f&t=Fg83T0w5Pm68yleb-0"
+              />
+            </Reveal>
+            <Reveal className="w-fit" delay={120}>
+              <HoverRevealCard 
+                icon={Star}
+                title="Finalis UI/UX Competition"
+                subtitle="2024"
+                description="Finalis UI/UX Competition as a team, organized by Politeknik Caltex Riau"
+                link="https://www.figma.com/design/4MDif4Zh8pkWRg6iW8KDR7/SkillSync?node-id=0-1&p=f&t=nBklreEo2wFej8If-0"
+              />
+            </Reveal>
           </div>
         </section>
 
         {/* Contact Section */}
         <section id="contact" className="min-h-[40vh] flex flex-col justify-center items-center pb-20 scroll-mt-24" data-scroll data-scroll-speed="0.1">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 dark:text-white tracking-tight">Get In Touch</h2>
-          <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-12 text-center max-w-xl leading-relaxed">
-            Currently open for new opportunities and exciting projects. Let's build something amazing together!
-          </p>
+          <Reveal>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 dark:text-white tracking-tight text-center">Get In Touch</h2>
+          </Reveal>
+          <Reveal delay={100}>
+            <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-12 text-center max-w-xl leading-relaxed text-pretty">
+              Currently open for new opportunities and exciting projects. Let&apos;s build something amazing together!
+            </p>
+          </Reveal>
           
           <div className="flex flex-col items-center gap-8">
             <a href="mailto:hello@example.com">
@@ -247,7 +266,7 @@ export default function Home() {
               </FlipButton>
             </a>
 
-            <div className="flex items-center gap-4 mt-6">
+            <div className="flex items-center gap-4 mt-6 [&>a]:transition-transform [&>a]:duration-300 [&>a:hover]:-translate-y-1">
               <a href="https://github.com" target="_blank" rel="noreferrer">
                 <FlipButton variant="outline" size="icon" className="rounded-full w-12 h-12">
                   <FlipButtonFront>
